@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fazara Hypermarket | فزارة هايبر ماركت</title>
+<meta name="description" content="Fazara Hypermarket, Palladium Mall, Sheikh Zayed. Delivery by phone, Android and iPhone apps.">
+<meta name="theme-color" content="#14492f">
+<link rel="icon" href="https://cdn.lynkle.com/images/5441/2a890e50-979f-46a9-90c0-35e6f3e33cb2.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#14492f; --green-2:#1d6a45; --citrus:#f7c531; --coral:#e8553d;
+  --ink:#16231c; --muted:#5b6b62; --bg:#f6f8f3; --line:#dfe6dc; --card:#fff;
+  --font:"Cairo","Segoe UI",Tahoma,system-ui,-apple-system,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.6;font-size:17px;
+  padding-bottom:calc(76px + env(safe-area-inset-bottom,0px));-webkit-text-size-adjust:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--citrus);outline-offset:2px}
+.wrap{max-width:720px;margin-inline:auto;padding-inline:20px}
+
+/* top bar */
+header{position:sticky;top:0;z-index:20;background:var(--green);color:#fff;
+  padding-top:env(safe-area-inset-top,0px)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800}
+.brand img{width:38px;height:38px;border-radius:50%;background:#fff;object-fit:cover}
+.lang{min-height:44px;padding:0 16px;border:2px solid rgba(255,255,255,.5);border-radius:99px;
+  background:transparent;color:#fff;font:700 15px var(--font);cursor:pointer}
+
+/* hero */
+.hero{background:var(--green);color:#fff;padding:28px 0 56px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset-inline:0;bottom:-1px;height:28px;background:var(--bg);
+  border-radius:28px 28px 0 0}
+.hero h1{font-size:clamp(2.3rem,10vw,4rem);font-weight:900;line-height:1.1;max-width:14ch}
+.hero p{margin-top:14px;max-width:34ch;color:#d5e6dc}
+.cta{display:flex;flex-direction:column;gap:12px;margin-top:26px}
+.btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 22px;
+  border-radius:16px;font-weight:800;font-size:1.05rem;transition:transform .15s}
+.btn:active{transform:scale(.98)}
+.btn.main{background:var(--citrus);color:var(--ink)}
+.btn.alt{background:rgba(255,255,255,.12);color:#fff;border:2px solid rgba(255,255,255,.35)}
+.btn svg{width:22px;height:22px;flex:none}
+@media(min-width:600px){.cta{flex-direction:row}.btn{flex:1}}
+
+/* sections */
+section{padding:34px 0 6px}
+h2{font-size:1.6rem;font-weight:900;line-height:1.2}
+.lead{color:var(--muted);margin:6px 0 16px;max-width:46ch}
+.rows{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.row{display:flex;align-items:center;gap:14px;min-height:64px;padding:12px 16px;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.row:hover{background:#f1f6ee}
+.ico{flex:none;width:42px;height:42px;border-radius:12px;display:grid;place-items:center;
+  background:#e4f0e8;color:var(--green)}
+.ico svg{width:22px;height:22px}
+.row b{display:block;font-weight:800;line-height:1.3}
+.row small{display:block;color:var(--muted);font-size:.9rem;line-height:1.3;overflow-wrap:anywhere}
+.row .go{margin-inline-start:auto;width:20px;height:20px;color:var(--muted);flex:none}
+[dir=rtl] .go{transform:scaleX(-1)}
+.delivery{background:var(--coral);color:#fff;border-radius:20px;padding:22px}
+.delivery h2{font-size:1.5rem}
+.delivery p{margin:6px 0 16px;color:#ffe9e4}
+.delivery .btn{background:#fff;color:var(--coral)}
+.delivery .num{font-size:1.15rem}
+footer{margin-top:40px;padding:26px 0;text-align:center;color:var(--muted);font-size:.9rem}
+
+/* mobile quick bar */
+.dock{position:fixed;inset-inline:0;bottom:0;z-index:30;background:#fff;border-top:1px solid var(--line);
+  display:grid;grid-template-columns:repeat(3,1fr);padding:8px 10px calc(8px + env(safe-area-inset-bottom,0px));gap:8px}
+.dock a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:52px;
+  border-radius:14px;font-weight:700;font-size:.82rem;color:var(--green)}
+.dock a:first-child{background:var(--coral);color:#fff}
+.dock svg{width:22px;height:22px}
+@media(min-width:900px){
+  body{padding-bottom:0}.dock{display:none}
+  .hero{padding:56px 0 80px}.wrap{max-width:860px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top"><img src="https://cdn.lynkle.com/images/5441/2a890e50-979f-46a9-90c0-35e6f3e33cb2.png" alt="" onerror="this.style.display='none'"><span data-t="name">Fazara Hypermarket</span></a>
+    <button class="lang" id="lang" type="button" aria-label="Change language">العربية</button>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <h1 data-t="h1">Your hypermarket, delivered.</h1>
+      <p data-t="sub">Order by phone or in the Fazara app, or visit us at Palladium Mall in Sheikh Zayed.</p>
+      <div class="cta">
+        <a class="btn main" href="tel:+201038378853"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11 11 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.6 3.6a1 1 0 0 1-.25 1z"/></svg><span data-t="callBtn">Call for delivery</span></a>
+        <a class="btn alt" href="#app"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg><span data-t="appBtn">Get the app</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section id="delivery">
+      <div class="delivery">
+        <h2 data-t="delH">Delivery</h2>
+        <p data-t="delP">Call us to place your delivery order.</p>
+        <a class="btn" href="tel:+201038378853"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11 11 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.6 3.6a1 1 0 0 1-.25 1z"/></svg><bdi dir="ltr" class="num">+20 103 837 8853</bdi></a>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section id="app">
+        <h2 data-t="appH">Shop in the app</h2>
+        <p class="lead" data-t="appP">Download the Fazara app on your phone.</p>
+        <div class="rows">
+          <a class="row" href="https://play.google.com/store/apps/details?id=com.fazara.market" target="_blank" rel="noopener">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M5 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 5 3.5z"/></svg></span>
+            <span><b data-t="android">Android app</b><small>Google Play</small></span>
+            <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+          </a>
+          <a class="row" href="https://apps.apple.com/id/app/fazara/id6756235412" target="_blank" rel="noopener">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.2-2.8.8-3.5.8s-1.8-.8-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7 2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.3-2.6-.1 0-2.5-1-2.5-3.8zM14.2 5.8c.6-.8 1.1-1.8.9-2.9-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.8-1 2.8 1 .1 2.1-.5 2.8-1.3z"/></svg></span>
+            <span><b data-t="ios">iPhone app</b><small>App Store</small></span>
+            <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </section>
+
+      <section id="visit">
+        <h2 data-t="visitH">Visit us</h2>
+        <p class="lead" data-t="addr">Palladium Mall, Sheikh Zayed, Giza, Egypt</p>
+        <div class="rows">
+          <a class="row" href="https://maps.google.com/?q=Egypt, Giza, Sheikh Zayed, palladium mall" target="_blank" rel="noopener">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+            <span><b data-t="map">Open in Google Maps</b><small data-t="mapSub">Get directions</small></span>
+            <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <section id="contact">
+      <h2 data-t="conH">Stay in touch</h2>
+      <p class="lead" data-t="conP">Follow us or send us a message.</p>
+      <div class="rows">
+        <a class="row" href="https://www.instagram.com/fazara.eg" target="_blank" rel="noopener">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>
+          <span><b>Instagram</b><small dir="ltr">@fazara.eg</small></span>
+          <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <a class="row" href="mailto:fazara-market@info.com">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+          <span><b data-t="email">Email us</b><small dir="ltr">fazara-market@info.com</small></span>
+          <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+        </a>
+        <a class="row" href="https://fazara-hypermarket.com" target="_blank" rel="noopener">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg></span>
+          <span><b data-t="web">Website</b><small dir="ltr">fazara-hypermarket.com</small></span>
+          <svg class="go" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer><div class="wrap">© <span id="yr"></span> <span data-t="name">Fazara Hypermarket</span></div></footer>
+
+<nav class="dock" aria-label="Quick actions">
+  <a href="tel:+201038378853"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11 11 0 0 0 3.6.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.6 3.6a1 1 0 0 1-.25 1z"/></svg><span data-t="dCall">Call</span></a>
+  <a href="#app"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg><span data-t="dApp">App</span></a>
+  <a href="https://maps.google.com/?q=Egypt, Giza, Sheikh Zayed, palladium mall" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><span data-t="dMap">Map</span></a>
+</nav>
+
+<script>
+// Edit the texts here. Add or change a language by editing these two objects.
+var T={
+ en:{name:"Fazara Hypermarket",h1:"Your hypermarket, delivered.",sub:"Order by phone or in the Fazara app, or visit us at Palladium Mall in Sheikh Zayed.",
+  callBtn:"Call for delivery",appBtn:"Get the app",delH:"Delivery",delP:"Call us to place your delivery order.",
+  appH:"Shop in the app",appP:"Download the Fazara app on your phone.",android:"Android app",ios:"iPhone app",
+  visitH:"Visit us",addr:"Palladium Mall, Sheikh Zayed, Giza, Egypt",map:"Open in Google Maps",mapSub:"Get directions",
+  conH:"Stay in touch",conP:"Follow us or send us a message.",email:"Email us",web:"Website",dCall:"Call",dApp:"App",dMap:"Map",other:"العربية"},
+ ar:{name:"فزارة هايبر ماركت",h1:"هايبر ماركتك لحد باب البيت",sub:"اطلب بالتليفون أو من تطبيق فزارة، أو زورنا في بالاديوم مول بالشيخ زايد.",
+  callBtn:"اتصل للتوصيل",appBtn:"حمّل التطبيق",delH:"التوصيل",delP:"اتصل بنا لتطلب أوردر التوصيل.",
+  appH:"تسوّق من التطبيق",appP:"حمّل تطبيق فزارة على موبايلك.",android:"تطبيق أندرويد",ios:"تطبيق آيفون",
+  visitH:"زورنا",addr:"بالاديوم مول، الشيخ زايد، الجيزة، مصر",map:"افتح في خرائط جوجل",mapSub:"اعرف الطريق",
+  conH:"ابقى على تواصل",conP:"تابعنا أو ابعتلنا رسالة.",email:"راسلنا بالإيميل",web:"الموقع الإلكتروني",dCall:"اتصل",dApp:"التطبيق",dMap:"الخريطة",other:"English"}
+};
+function setLang(l){
+  var d=document.documentElement;d.lang=l;d.dir=l==="ar"?"rtl":"ltr";
+  document.querySelectorAll("[data-t]").forEach(function(e){e.textContent=T[l][e.dataset.t]});
+  document.getElementById("lang").textContent=T[l].other;
+  document.title=l==="ar"?"فزارة هايبر ماركت | Fazara Hypermarket":"Fazara Hypermarket | فزارة هايبر ماركت";
+  try{localStorage.setItem("lang",l)}catch(e){}
+}
+var saved=null;try{saved=localStorage.getItem("lang")}catch(e){}
+var start=saved||((navigator.language||"").indexOf("ar")===0?"ar":"en");
+setLang(start);
+document.getElementById("lang").onclick=function(){setLang(document.documentElement.lang==="ar"?"en":"ar")};
+document.getElementById("yr").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
